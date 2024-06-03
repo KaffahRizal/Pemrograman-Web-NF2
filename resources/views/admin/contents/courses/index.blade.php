@@ -17,7 +17,7 @@
   <section class="section dashboard">
     <div class="card">
         <div class="card-body py-4">
-            <a href="/student/create" class="btn btn-primary m-3">+ Course</a>
+            <a href="/admin/courses/create" class="btn btn-primary m-3">+ Course</a>
             <div class="table-responsive">
                 <table class="table">
                     <tr>
@@ -35,9 +35,13 @@
                         <td>{{ $course->name }}</td>
                         <td>{{ $course->category }}</td>
                         <td>{{ $course->desc }}</td>
-                        <td>
-                            <a href="" class="btn btn-warning">Edit</a> | 
-                            <a href="" class="btn btn-danger">Delete</a>
+                        <td class="d-flex">
+                          <a href="{{route('course.edit', $course->id)}}" class="btn btn-warning me-2">Edit</a>
+                          <form action="/admin/courses/delete/{{ $course->id }} " method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" onclick="return confirm('Apakah anda yakin ingin menghapus data?')" class="btn btn-danger">Delete</button>
+                          </form>
                         </td>
                     </tr>
                         

@@ -20,7 +20,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link @if($currentRoute != 'admin/course') collapsed @endif" href="/admin/course">
+            <a class="nav-link @if($currentRoute != 'admin/courses') collapsed @endif" href="/admin/courses">
                 <i class="bi bi-book"></i>
                 <span>Courses</span>
             </a>

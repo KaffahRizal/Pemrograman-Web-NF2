@@ -11,5 +11,6 @@ class Course extends Model
 
     protected $table = 'courses';
 
-    
+    // mendefinisikan field yang bolehdiisi
+    protected $fillable = ['name', 'category','desc'];
 }
