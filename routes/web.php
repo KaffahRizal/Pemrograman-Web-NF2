@@ -50,5 +50,5 @@ route::get('admin/student/edit/{id}', [StudentController::class, 'edit'])->name(
 route::put('admin/student/update/{id}', [StudentController::class, 'update']);
 
 // route untuk menghapus student
-route::delete('admin/student/destroy/{id}', [StudentController::class, 'destroy']);
+route::delete('admin/student/delete/{id}', [StudentController::class, 'destroy']);
 
