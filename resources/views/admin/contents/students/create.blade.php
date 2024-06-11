@@ -45,7 +45,7 @@
                               <option value="{{ $course->id }}">{{ $course->name }}</option>
                           @endforeach
                       </select>
-                  </div>
+                    </div>
 
                     <div class="mb-2">
                         <label for="class" class="form-label">Class</label>

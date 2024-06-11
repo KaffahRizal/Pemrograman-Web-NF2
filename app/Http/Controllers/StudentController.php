@@ -43,7 +43,8 @@ class StudentController extends Controller
             'name' => 'required',
             'nim' => 'required|numeric',
             'major' => 'required',
-            'class' => 'required'
+            'class' => 'required',
+            'course_id' => 'numeric|nullable'
         ]);
 
         // simpan data ke database
@@ -52,6 +53,7 @@ class StudentController extends Controller
             'nim' => $request->nim,
             'major' => $request->major,
             'class' => $request->class,
+            'course_id' => $request->course_id
         ]);
 
         // arahkan ke halaman student index
@@ -62,12 +64,16 @@ class StudentController extends Controller
 
     // method untk menampilkan form edit student
     public function edit($id){
+        // cari data course dari database
+        $courses = Course::all();
+
         // cari data student berdasarkan id
         $student = Student::find($id); //select * from student where id = $id
 
         // kirim student ke view edit
         return view('admin.contents.students.edit', [
-            'student' => $student
+            'student' => $student,
+            'courses' => $courses
         ]); 
     }
 
@@ -76,13 +82,15 @@ class StudentController extends Controller
 
         // cari data student berdasarkan id
         $student = Student::find($id); //select * from student where id = $id
+        
 
         // validasi data yang diterima
         $request->validate([
             'name' => 'required',
             'nim' => 'required|numeric',
             'major' => 'required',
-            'class' => 'required'
+            'class' => 'required',
+            'course_id' => 'numeric|nullable'
         ]);
         //simpan perubahan data ke database
         
@@ -91,6 +99,7 @@ class StudentController extends Controller
             'nim' => $request->nim,
             'major' => $request->major,
             'class' => $request->class,
+            'course_id' => $request->course_id
         ]);
 
         // alihkan ke halaman student index
